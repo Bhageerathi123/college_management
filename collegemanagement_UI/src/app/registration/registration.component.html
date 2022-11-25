@@ -1,0 +1,213 @@
+<section
+  id="topbar"
+  class="mb-2 mb-lg-0 mb-sm-0 d-none d-lg-flex align-items-center pt-2 pb-2 bg-primary text-white topbar-transparent"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 text-start">
+        <span class="px-3"><i class="bi bi-phone"></i> +91 9785478522 </span>
+        <i class="bi bi-clock"></i> Mon-Sat: 9:00 AM - 4:00 PM
+      </div>
+      <div class="col-md-6 text-end">
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Navbar Start-->
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light header-navigation stricky original"
+>
+  <div class="container">
+    <a
+      href="home"
+      class="pull-left"
+      style="margin-right: 12px; margin-bottom: -33px; margin-left: -115px"
+      ><img src="assets/images/logo.png" height="100px;" width="120px;"
+    /></a>
+    <a class="navbar-brand" href="home">
+      <h2 class="fw-bold mb-2 mb-lg-0 mb-sm-0">College Management System</h2>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="bi bi-list"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="courses">Courses</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact">Contact us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--Navbar End-->
+<div class="reg-container">
+  <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Registration</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form (ngSubmit)="registerUser()">
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" name="email"  [(ngModel)]="user.email" placeholder="Email" required />
+            </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="user.password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="cpassword"
+                placeholder="Re-type Password"
+                required
+              />
+            </div>
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field">
+                  <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="fname" [(ngModel)]="user.fname" placeholder="First Name" />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field">
+                  <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input
+                    type="text"
+                    name="lname"
+                    [(ngModel)]="user.lname"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="input_field radio_option">
+              <input type="radio" name="male" value="male" [(ngModel)]="user.male" id="rd1" />
+              <label for="rd1" >Male</label>
+              <input type="radio" name="male"  value="female" [(ngModel)]="user.male" id="rd2" />
+              <label for="rd2">Female</label>
+            </div>  
+            <div class="input_field select_option" >
+              <select [(ngModel)]="user.country" name="country">
+                <option>Select a country</option>
+                <option>India</option>
+                <option>US</option>
+              </select>
+              <div class="select_arrow"></div>
+            </div>
+            <input class="button" type="submit" value="Register" />
+            <a href="login" class="forgot" style="color: #217dda !important"
+              >Click here to Login</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-primary py-3 text-white">
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="bi bi-gem me-3"></i>College
+          </h6>
+          <p>
+           Shree Bhagya College For Women Located in Bangalore 560040.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="bi bi-location me-3"></i> Bangalore</p>
+          <p>
+            <i class="bi bi-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="bi bi-phone me-3"></i> + 9123456788</p>
+          <p><i class="bi bi-print me-3"></i> + 9123456789</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+</footer>
+<!-- Footer -->

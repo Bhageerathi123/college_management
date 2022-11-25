@@ -1,0 +1,128 @@
+
+<div  class="modal"  tabindex="-1"  role="dialog"  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" *ngIf="!department.departmentId">Create Department</h4>
+        <h4 class="modal-title"  *ngIf="department.departmentId">Edit Department</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container col-md-6">
+          <h1 style="color:blue;"></h1>
+           <form (ngSubmit)="craeteDepartment()">
+         
+             <div class="mb-3">
+               <label for="exampleFormControlInput1" class="form-label">Department Name</label>
+               <input type="text" class="form-control" id="departmentName" name="departmentName" [(ngModel)]="department.departmentName">
+             </div>
+             <div class="mb-3"> 
+               <label for="exampleFormControlInput1" class="form-label">HOD</label>
+               <input type="text" class="form-control" id="hod" name="hod" [(ngModel)]="department.hod" >
+             </div>
+             <div class="mb-3">
+               <label for="exampleFormControlInput1" class="form-label">Email</label>
+               <input type="email" class="form-control" id="email" name="email" [(ngModel)]="department.contactEmail" >
+             </div>
+             <div class="mb-3">
+               <label for="exampleFormControlInput1" class="form-label">Phone</label>
+               <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="department.contactPhone">
+             </div>
+            <button type="submit" class="btn btn-primary"  *ngIf="!department.departmentId">Create</button>
+            <button type="submit" class="btn btn-primary"  *ngIf="department.departmentId">Update</button>
+           </form>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()"> Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<mat-form-field class="side-margin">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+</mat-form-field>
+
+<!-- <div class="mat-elevation-z8 side-margin"> -->
+  <div class="side-margin">
+  <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8 ">
+    <!-- ID Column -->
+    <ng-container matColumnDef="departmentId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DepartmentId</th>
+      <td mat-cell *matCellDef="let row">{{ row.departmentId }}</td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="departmentName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Department Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.departmentName }}</td>
+    </ng-container>
+    
+    <!-- Progress Column -->
+    <ng-container matColumnDef="hod">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Department HOD</th>
+      <td mat-cell *matCellDef="let row">{{ row.hod }}</td>
+    </ng-container>
+    
+    <!-- Progress Column -->
+    <ng-container matColumnDef="contactEmail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact Email</th>
+      <td mat-cell *matCellDef="let row">{{ row.contactEmail }}</td>
+    </ng-container>
+     <!-- Progress Column -->
+     <ng-container matColumnDef="contactPhone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact Phone</th>
+      <td mat-cell *matCellDef="let row">{{ row.contactPhone }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="creationDateTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Creation DateTime</th>
+      <td mat-cell *matCellDef="let row">{{ row.creationDateTime | date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="updatedDateTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated DateTime</th>
+      <td mat-cell *matCellDef="let row">{{ row.updatedDateTime | date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+     <!-- actions -->
+     <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="openPopup()" title="Add Department">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="accent" (click)="editDepartmentModal(row)" title="Edit Department">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="accent" (click)="deleteDepartment(row)" title="Delete Department">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+  </div>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+<!-- </div> -->

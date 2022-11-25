@@ -1,0 +1,103 @@
+<header>
+  <section
+    id="topbar"
+    class="mb-2 mb-lg-0 mb-sm-0 d-none d-lg-flex align-items-center pt-2 pb-2 bg-primary text-white topbar-transparent"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 text-start">
+          <span class="px-3"><i class="bi bi-phone"></i> +91 9785478522 </span>
+          <i class="bi bi-clock"></i> Mon-Sat: 9:00 AM - 4:00 PM
+        </div>
+        <div class="col-md-6 text-end">
+          <a href="home" class="me-4 text-reset">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="home" class="me-4 text-reset">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a href="home" class="me-4 text-reset">
+            <i class="bi bi-google"></i>
+          </a>
+          <a href="home" class="me-4 text-reset">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="home" class="me-4 text-reset">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="home" class="me-4 text-reset">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Navbar Start-->
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-light header-navigation stricky original"
+  >
+    <div class="container">
+      <a
+        href="home"
+        class="pull-left"
+        style="margin-right: 12px; margin-bottom: -33px; margin-left: -115px"
+        ><img src="assets/images/logo.png" height="100px;" width="120px;"
+      /></a>
+      <a class="navbar-brand" href="home">
+        <h2 class="fw-bold mb-2 mb-lg-0 mb-sm-0">College Management System</h2>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="bi bi-list"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" aria-current="page" href="">Home</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" *ngIf="authService.isUserLoggedIn()" href="home/student">Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="authService.isUserLoggedIn()" href="home/department">Department</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="authService.isUserLoggedIn()" href="home/faculty">Faculty</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">Contact us</a>
+          </li>
+        </ul>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+          <span class="caret"> <i class="bi bi-person"></i></span></button>
+          <ul class="dropdown-menu">
+            <li><a class="nav-link" href="home">Profile</a></li>
+            <li><a class="nav-link" (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <!--Navbar End-->
+</header>
+<!--Header End-->
