@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edubridge.collegemanagement.entities.Department;
 import com.edubridge.collegemanagement.services.DepartmentService;
-
+/*Department controller responsible for all operations of department */
 @RestController
 @RequestMapping("/department")
 @DynamicUpdate
